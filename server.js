@@ -1,5 +1,18 @@
+const cors = require("cors")
 const express = require("express"); //import express
+const productRouter = require("./product")
 const app = express() //lértehoz egy appot(szervert)
+
+app.use(cors({
+    origin: ["https://localhost:5500","https://127.0.0.0.1:5500"]
+}))
+app.use((req,res,next)=> {
+    console.log(req.method,req.path)
+    next()
+})
+app.use(express.json())
+
+app.use("./product",productRouter)
 
 app.get("/",(req,res)=> { //ha valki get adatot kér így valszolok
     res.send("hello from express");
@@ -11,20 +24,17 @@ app.get("/about", (req,res)=>{
 app.get("/contact", (req,res)=>{
     res.send("this is the contact page");
 })
-app.get("/product", (req,res)=> {
-    res.json([
-        { id:1, name:"laptop",price: 1299},
-        { id:2, name:"Mouse",price:50}
-    ])
+
+app.get("/message",(req,res)=>{
+    res.json({message: "hello from the backend"})
 })
-app.get("/product/:id",(req,res)=>{
-    const id = Number(req.params.id)
-    const product = [
-        { id:1, name:"laptop",price: 1299},
-        { id:2, name:"Mouse",price:50}        
-    ]
-    const requestedProduct = product.find((product)=> product.id === id)
-})
+
+app.post("/message", (req,res => {
+    const {name,message} = req.body
+    console.log("new message:",name,message)
+    res.json({message:"thanks for your message"})
+}))
+
 app.listen(3000,()=>{ //hallgatja/figyeli a 3000es portot
     console.log("the server is running");
 })
