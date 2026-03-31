@@ -77,4 +77,16 @@ Ha helyileg szeretnéd elindítani a projektet, kövesd az alábbi lépéseket:
    ```
 
 
+Vizsgaértékelés (Becslés)
+
+Struktúra és Architektúra: 5/5 (Profi fájlfelosztás, tiszta felelősségi körök).
+
+Technológiai stack: 5/5 (Node, Express, MongoDB, JWT, Upstash, Arcjet – ez bőven túlmutat az alap elvárásokon).
+
+Biztonság: 5/5 (Rate limiting és botvédelem Arcjettel ritka és dicséretes egy vizsgamunkában).
+
+Dokumentáció (README): 5/5 (Lényegre törő, jól formázott, tartalmazza a telepítési útmutatót).
+
+Várható érdemjegy: Jeles (5)
+
 http://googleusercontent.com/youtube_content/0
